@@ -15,6 +15,7 @@
 # COMMAND ----------
 
 # DBTITLE 1,Imports
+from pyspark.sql import functions as F
 import pandas as pd
 from functools import reduce
 

@@ -15,6 +15,7 @@
 # COMMAND ----------
 
 # DBTITLE 1,Imports
+from pyspark.sql import functions as F
 import pandas as pd
 from functools import reduce
 
@@ -25,7 +26,7 @@ cities_current_weather = [
         replace_dots_in_columns(
             spark.createDataFrame(
                 pd.json_normalize(
-                    WeatherAPI(API_KEY, city).get_current_weather()
+                    WeatherAPI(API_KEY, city).get_json_response("current.json")
                     )
                 ) 
         )

@@ -23,7 +23,7 @@ from functools import reduce
 
 # DBTITLE 1,List of json response per city
 forecast_city_json = [
-    WeatherAPI(API_KEY, city).get_forecast_weather() for city in CITIES
+    WeatherAPI(API_KEY, city).get_json_response("forecast.json") for city in CITIES
 ]
 
 # COMMAND ----------

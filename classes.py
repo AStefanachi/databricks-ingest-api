@@ -17,29 +17,15 @@ class WeatherAPI:
         self.city = city
         self.API_URL = "http://api.weatherapi.com/v1/"
     
-    def get_current_weather(self):
+    def get_json_response(self, endpoint):
         """
-        Passing the parameters to the current.json endpoint will return 
-        json formatted information about the current weather
+        Passing the parameters to the endpoint inclusive of the .json extension
+        will return a json formatted response
         """
-        REQUEST_CURRENT_WEATHER = self.API_URL + "current.json"
+        request = self.API_URL + endpoint
         params = {
             "key": self.api_key,
             "q": self.city
         }
-        response = requests.get(REQUEST_CURRENT_WEATHER, params=params)
-        return response.json()
-    
-    def get_forecast_weather(self):
-        """
-        Passing the parameters to the forecast.json endpoint will return
-        a json formatted information about the forecast for the city
-        including as well sunrise and sunset information
-        """
-        REQUEST_FORECAST_WEATHER = self.API_URL + "forecast.json"
-        params = {
-            "key": self.api_key,
-            "q": self.city
-        }
-        response = requests.get(REQUEST_FORECAST_WEATHER, params=params)
+        response = requests.get(request, params=params)
         return response.json()
