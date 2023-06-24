@@ -1,5 +1,8 @@
 # Databricks notebook source
 # DBTITLE 1,nutter tests
+%pip install nutter
+# COMMAND ----------
+# DBTITLE 1,nutter tests
 from runtime.nutterfixture import NutterFixture, tag
 class MultiTestFixture(NutterFixture):
     # Asserting to have more than 0 records
